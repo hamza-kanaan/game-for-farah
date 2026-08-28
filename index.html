@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farah's Quiz Quest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127919;</text></svg>">
+</head>
+<body>
+
+  <!-- Floating background decorations -->
+  <div class="floaties" aria-hidden="true">
+    <span>⭐</span><span>🎈</span><span>🌈</span><span>✨</span>
+    <span>🎉</span><span>💫</span><span>🍭</span><span>🦄</span>
+  </div>
+
+  <main class="stage">
+
+    <!-- ============ SCREEN 1: pick a category ============ -->
+    <section id="screen-home" class="screen is-active">
+      <header class="home-header">
+        <div class="logo-badge">🎯</div>
+        <h1 class="title">Farah's Quiz&nbsp;Quest</h1>
+        <p class="subtitle">Pick a round and show us what you know!</p>
+      </header>
+
+      <div id="category-grid" class="category-grid">
+        <!-- Category cards are built by js/game.js -->
+      </div>
+
+      <p class="hint">💡 Tip: each round has 14 questions, with 2 tricky <b>bonus</b> ones at the end.</p>
+    </section>
+
+    <!-- ============ SCREEN 2: the quiz itself ============ -->
+    <section id="screen-quiz" class="screen">
+      <div class="quiz-bar">
+        <button id="btn-home" class="icon-btn" type="button" aria-label="Back to categories">←</button>
+        <div class="quiz-bar-info">
+          <span id="quiz-category" class="quiz-category">Round</span>
+          <span id="quiz-counter" class="quiz-counter">Question 1 of 14</span>
+        </div>
+        <div class="score-pill">
+          <span class="score-star" aria-hidden="true">⭐</span>
+          <span id="score-value">0</span>
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+
+      <div id="streak-flag" class="streak-flag" role="status" aria-live="polite"></div>
+
+      <div id="question-card" class="question-card">
+        <div id="bonus-tag" class="bonus-tag">⭐ BONUS QUESTION — worth double!</div>
+        <h2 id="question-text" class="question-text">Question goes here</h2>
+        <div id="options" class="options" role="group" aria-label="Answer choices">
+          <!-- Answer buttons are built by js/game.js -->
+        </div>
+      </div>
+
+      <div id="feedback" class="feedback" role="status" aria-live="polite">
+        <div class="feedback-top">
+          <span id="feedback-emoji" class="feedback-emoji">🎉</span>
+          <span id="feedback-headline" class="feedback-headline">Yes!</span>
+        </div>
+        <p id="feedback-explain" class="feedback-explain"></p>
+        <button id="btn-next" class="btn btn-next" type="button">Next question →</button>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN 3: results ============ -->
+    <section id="screen-result" class="screen">
+      <div class="result-card">
+        <div id="badge-emoji" class="badge-emoji">🏆</div>
+        <h2 id="badge-title" class="badge-title">Quiz Champion!</h2>
+        <p id="result-message" class="result-message"></p>
+
+        <div class="result-stats">
+          <div class="stat">
+            <span id="stat-correct" class="stat-value">0</span>
+            <span class="stat-label">correct</span>
+          </div>
+          <div class="stat">
+            <span id="stat-stars" class="stat-value">0</span>
+            <span class="stat-label">stars</span>
+          </div>
+          <div class="stat">
+            <span id="stat-streak" class="stat-value">0</span>
+            <span class="stat-label">best streak</span>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button id="btn-again" class="btn btn-primary" type="button">🔁 Play this round again</button>
+          <button id="btn-new-category" class="btn btn-secondary" type="button">🎲 Pick a new round</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
